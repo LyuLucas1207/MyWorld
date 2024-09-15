@@ -1,0 +1,170 @@
+/* login.css */
+
+/* 容器样式，居中对齐 */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--login-background-color);
+}
+
+
+/* 登录卡片的拟态风格 */
+.login-card {
+    background-color: var(--login-content-bg-color);
+    box-shadow: 8px 8px 16px var(--login-shadow-dark), -8px -8px 16px var(--login-shadow-light);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    height: max-content;
+    min-height: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    /* 禁用文本选择 */
+}
+
+@media screen and (max-width: 1000px) {
+    .login-card {
+        padding: 20px;
+        border-radius: 10px;
+        width: 70%;
+        min-height: 100px;
+        height: max-content;
+    }
+}
+
+.login-card:hover {
+    box-shadow: 14px 14px 18px var(--login-shadow-dark), -14px -14px 18px var(--login-shadow-light);
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.login-form {
+    width: 80%;
+}
+
+/* 标题样式 */
+.login-title {
+    font-size: 2.5rem;
+    font-weight: 1500;
+    color: var(--login-title-color);
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+    .login-title {
+        font-size: 1.5rem;
+    }
+
+}
+
+/* 输入框的容器和样式 */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.input-group label {
+    color: var(--login-text-color);
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+    user-select: none;
+    /* 禁用文本选择 */
+}
+
+@media screen and (max-width: 1000px) {
+    .input-group label {
+        font-size: 0.8rem;
+    }
+
+}
+
+.input-group input {
+    width: 95%;
+    padding: 10px 0px 10px 15px;
+    /* up right down left */
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--login-contract-bg-color);
+    box-shadow: inset 2px 2px 4px var(--login-shadow-dark), inset -2px -2px 4px var(--login-shadow-light);
+    color: var(--login-text-color);
+    font-size: 1rem;
+
+}
+
+@media screen and (max-width: 1000px) {
+    .input-group input {
+        margin-bottom: 5px;
+        padding: 8px 0px 8px 10px;
+        /* up right down left */
+        border-radius: 2px;
+        font-size: 0.8rem;
+    }
+
+}
+
+.input-group input:focus {
+    box-shadow: inset 6px 6px 10px var(--login-shadow-dark), inset -6px -6px 10px var(--login-shadow-light);
+}
+
+
+/* 登录按钮 */
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--login-link-bg-color);
+    color: var(--login-link-text-color);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+@media screen and (max-width: 1000px) {
+    .login-btn {
+        padding: 10px;
+        border-radius: 8px;
+        font-size: 1rem;
+    }
+
+}
+
+
+.login-btn:hover {
+    background-color: var(--login-link-hover-bg-color);
+}
+
+/* 注册链接文本 */
+.signup-text {
+    margin-top: 20px;
+    color: var(--login-subtitle-color);
+}
+
+@media screen and (max-width: 1000px) {
+    .signup-text {
+        font-size: 0.8rem;
+    }
+
+}
+
+.signup-link {
+    color: var(--login-link-bg-color);
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.signup-link:hover {
+    color: var(--login-link-hover-bg-color);
+}

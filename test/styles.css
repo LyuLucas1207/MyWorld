@@ -1,0 +1,60 @@
+/* 通用样式 */
+body {
+    font-family: Arial, sans-serif;
+    transition: background-color 0.5s, color 0.5s;
+    margin: 0;
+    padding: 20px;
+}
+
+/* 灯绳容器的绝对定位，始终位于右上角 */
+.svg-container {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    /* 距离右边20px以避免紧贴边界 */
+    width: 50px;
+    height: 300px;
+    user-select: none;
+    cursor: pointer;
+    z-index: 999;
+    /* 确保始终在最上方 */
+}
+
+/* 使用 CSS 变量切换颜色 */
+:root {
+    --cord-color: black;
+    --bulb-color: yellow;
+}
+
+/* 灯绳 */
+#cord {
+    transition: y2 0.2s ease-out;
+    stroke: var(--cord-color);
+    /* 使用 CSS 变量定义绳子的颜色 */
+}
+
+/* 灯泡 */
+#bulb {
+    transition: cy 0.2s ease-out;
+    fill: var(--bulb-color);
+    /* 使用 CSS 变量定义灯泡的颜色 */
+}
+
+/* 主题样式 */
+.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+    --cord-color: black;
+    /* 白天，灯绳是黑色 */
+    --bulb-color: yellow;
+    /* 灯泡是黄色 */
+}
+
+.dark-theme {
+    background-color: #000000;
+    color: #ffffff;
+    --cord-color: white;
+    /* 黑夜，灯绳是白色 */
+    --bulb-color: yellow;
+    /* 灯泡仍然是黄色 */
+}
