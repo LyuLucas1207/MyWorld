@@ -1,8 +1,14 @@
+// 引入组件
 import React from "react";
-import "../../css/TentLoader.css";
 import Container from "./Container";
 import Switch from "./Switch";
+
+// 引入样式文件
+import "../../css/TentLoader.css";
+
+// 引入自定义 Hook
 import { useTheme } from "../utility/changeTheme";
+
 
 
 function TentLoader() {
