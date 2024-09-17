@@ -1,4 +1,3 @@
-
 class Star {
     selector = '.section-banner';
     num = 125;

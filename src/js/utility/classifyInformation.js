@@ -1,4 +1,7 @@
-function codeDefine(status = 999, code = 999, data = null) {
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+function classifyCode(status = 999, code = 999, data = null) {
     switch (status) {
         case 200:
             return status_200(code, data);
@@ -101,4 +104,20 @@ function status_default() {
     return { status: 999, code: 999, data: null, msg: '未知错误，请重试！' };
 }
 
-export default codeDefine;
+
+
+function classifyLink(link) {
+    switch (link) {
+        case '/login':
+            return <Link to={link} className="notfound-link">Go to Login</Link>;
+        case '/admin.html':
+            return <a href="admin.html" className="notfound-link">Go to Admin Page</a>;
+        case '/admin_home.html':
+            return <a href="admin.html" className="notfound-link">Go to Admin Page</a>;
+        default:
+            // 默认返回首页链接
+            return <Link to="/" className="notfound-link">Go Back to Home</Link>;
+    }
+}
+
+export { classifyCode, classifyLink };

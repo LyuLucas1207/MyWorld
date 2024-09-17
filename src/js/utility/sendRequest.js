@@ -1,13 +1,15 @@
 import axios from 'axios'; // 引入 axios
-import codeDefine from './codeDefine';
+import { classifyCode } from './classifyInformation';
+
+const url = 'http://192.168.1.75:9999'; // 定义请求地址
 
 async function checkIdentity() {
     const token = localStorage.getItem('token');
     if (!token) {
-        return codeDefine(401, 1, { msg: '未登录，请先登录！' });
+        return classifyCode(401, 1, { msg: '未登录，请先登录！' });
     }
     try {
-        const response = await axios.post('http://192.168.1.68:9999', {
+        const response = await axios.post(url, {
             action: 'checkIdentity' // 发送的数据
         }, {
             headers: {
@@ -16,12 +18,12 @@ async function checkIdentity() {
             },
             timeout: 5000
         }); // 设置超时时间为 5 秒
-        return codeDefine(response.status, response.data.code, response.data);
+        return classifyCode(response.status, response.data.code, response.data);
     } catch (error) {
         if (error.response) {
-            return codeDefine(error.response.status, error.response.data.code, error.response.data);
+            return classifyCode(error.response.status, error.response.data.code, error.response.data);
         }
-        return codeDefine(500, 1, { msg: error.message });
+        return classifyCode(500, 1, { msg: error.message });
     }
 };
 
@@ -33,7 +35,7 @@ async function getDatas(action) {
     }
 
     try {
-        const response = await axios.post('http://192.168.1.68:9999', {
+        const response = await axios.post(url, {
             action: action // 发送的数据 'getProjects'
         }, {
             headers: {
@@ -42,31 +44,31 @@ async function getDatas(action) {
             },
             timeout: 5000
         }); // 设置超时时间为 5 秒
-        return codeDefine(response.status, response.data.code, response.data);
+        return classifyCode(response.status, response.data.code, response.data);
     } catch (error) {
         if (error.response) {
-            return codeDefine(error.response.status, error.response.data.code, error.response.data);
+            return classifyCode(error.response.status, error.response.data.code, error.response.data);
         }
     }
 };
 
 async function sendLoginRequest(email, password) {
     try {
-        const response = await axios.post('http://192.168.1.68:9999', {
+        const response = await axios.post(url, { // 发送 POST 请求
             action: 'login', // 定义 action 为 login
             email,
             password,
         });
 
         if (response.status === 200) {
-            codeDefine(response.status, response.data.code, response.data);
+            classifyCode(response.status, response.data.code, response.data);
         }
 
 
     } catch (error) {
         // 这里处理网络请求失败或其他错误
         if (error.response) {
-            codeDefine(error.response.status, error.response.data.code, error.response.data);
+            classifyCode(error.response.status, error.response.data.code, error.response.data);
         }
     }
 }

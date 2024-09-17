@@ -8,11 +8,12 @@ import Switch from '../components/Switch';
 
 // 引入工具函数和自定义 Hook
 import { checkIdentity, getDatas } from '../utility/sendRequest';
-import { useTheme } from '../utility/changeTheme';
+import { useTheme, useValidRoute } from '../utility/myUse';
 
 // 引入样式文件
 import '../../css/AdminHome.css';
 import '../../css/import/css/boxicons.min.css';
+
 
 
 const ProjectList = ({ projects, fetchData }) => (
@@ -151,6 +152,8 @@ const Sidebar = ({ sidebarOpen, toggleCategoryMenu, categoryOpen, togglePostsMen
 );
 
 const AdminHome = () => {
+    const validPaths = ['/', '/adminhome', '/not-found'];
+    useValidRoute(validPaths, 'admin_home.html#/not-found');
     const [projects, setProjects] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);

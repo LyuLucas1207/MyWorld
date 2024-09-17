@@ -1,5 +1,6 @@
-import hashWarp from '../utility/hashWarp';
-import useValidRoute from '../utility/renavigate';
+import React from 'react';
+import { validateUrl } from '../utility/validate';
+import { useValidRoute } from '../utility/myUse';
 
 function SignUp() {
     const validPaths = ['/', '/not-found', '/login', '/signup'];
@@ -12,4 +13,4 @@ function SignUp() {
     );
 }
 
-export default hashWarp(SignUp);
+export default validateUrl(SignUp);

@@ -7,7 +7,7 @@ import Switch from "./Switch";
 import "../../css/TentLoader.css";
 
 // 引入自定义 Hook
-import { useTheme } from "../utility/changeTheme";
+import { useTheme } from "../utility/myUse";
 
 
 

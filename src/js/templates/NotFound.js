@@ -8,9 +8,9 @@ import '../../css/NotFound.css';
 import '../../css/EarthStar.css';
 
 // 引入自定义 Hook 和工具函数
-import { useTheme } from '../utility/changeTheme';
-import hashWarp from '../utility/hashWarp';
-import classifyLink from '../utility/classfyLink';
+import { useTheme } from '../utility/myUse';
+import { validateUrl } from '../utility/validate';
+import { classifyLink } from '../utility/classifyInformation';
 import { Star, generateStar } from '../utility/generateStar';
 
 
@@ -48,7 +48,7 @@ function NotFound({ message, link = null, status = 404 }) {
     );
 }
 
-export default hashWarp(NotFound);
+export default validateUrl(NotFound);
 
 
 

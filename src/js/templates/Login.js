@@ -1,18 +1,15 @@
 // 引入 React 和 Hooks
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 // 引入组件
 import Switch from '../components/Switch';
 
 // 引入路由和导航相关
 import { useNavigate } from 'react-router-dom';
-import useValidRoute from '../utility/renavigate';
 
 // 引入工具函数、自定义 Hook 和验证函数
-import { useTheme } from '../utility/changeTheme';
-import hashWarp from '../utility/hashWarp';
-import { Star, generateStar } from '../utility/generateStar';
-import { validateEmail, validatePassword } from '../utility/validate';
+import { useTheme, useValidRoute, useStarEffect  } from '../utility/myUse';
+import { validateEmail, validatePassword, validateUrl } from '../utility/validate';
 import { sendLoginRequest } from '../utility/sendRequest';
 
 // 引入样式文件
@@ -46,7 +43,7 @@ function handleSubmit(event) {
 
 function Login() {
     const validPaths = ['/', '/not-found', '/login', '/signup'];
-    useValidRoute(validPaths);
+    useValidRoute(validPaths, 'admin.html#/not-found');
     const [isDarkTheme, toggleTheme] = useTheme(); // 使用自定义 Hook
     const navigate = useNavigate(); // 路由跳转
 
@@ -54,12 +51,7 @@ function Login() {
         navigate('/signup'); // 跳转到 /signup
     };
 
-
-    // 使用 useEffect 确保 DOM 元素加载完毕后调用 generateStar
-    useEffect(() => {
-        const starInstance = new Star('.earth-star', 30, 100); // 创建 Star 实例
-        generateStar(starInstance); // 调用 generateStar 生成星星效果
-    }, []); // 仅在组件挂载时执行一次
+    useStarEffect('.earth-star', 30, 100);
 
     // 密码可见性切换状态
     const [isChecked, setIsChecked] = useState(false);
@@ -121,8 +113,9 @@ function Login() {
                     <span className="signup-link" onClick={handleSignupClick}>Sign up</span>
                 </p>
             </div>
+            <div className="earth-star"></div>
         </div>
     );
 }
 
-export default hashWarp(Login);
+export default validateUrl(Login);

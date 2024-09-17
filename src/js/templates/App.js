@@ -1,6 +1,8 @@
 import '../../css/App.css';
-import hashWarp from '../utility/hashWarp';
-import useValidRoute from '../utility/renavigate';
+import { validateUrl } from '../utility/validate';
+import { useValidRoute } from '../utility/myUse';
+
+import Firework from '../components/Firework';
 
 
 function App() {
@@ -8,9 +10,10 @@ function App() {
     useValidRoute(validPaths);
     return (
         <div className="App">
-            <h1> This is the App component </h1>
+            <h1>欢迎来到我的博客</h1>
+            <Firework />
         </div>
     );
 }
 
-export default hashWarp(App);
+export default validateUrl(App);
