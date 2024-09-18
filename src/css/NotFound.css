@@ -141,7 +141,7 @@ html {
     box-sizing: border-box;
     background-color: var(--background-color, #f0f2f5);
     /* 默认主题颜色 */
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .notfound-container {

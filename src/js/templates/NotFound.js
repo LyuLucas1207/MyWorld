@@ -1,5 +1,5 @@
 // 引入组件
-import React, { useEffect } from 'react';
+import React from 'react';
 import TruckLoader from '../components/TruckLoader';
 import Switch from '../components/Switch';
 
@@ -11,7 +11,7 @@ import '../../css/EarthStar.css';
 import { useTheme } from '../utility/myUse';
 import { validateUrl } from '../utility/validate';
 import { classifyLink } from '../utility/classifyInformation';
-import { Star, generateStar } from '../utility/generateStar';
+import EarthStar from '../components/EarthStar';
 
 
 function NotFound({ message, link = null, status = 404 }) {
@@ -22,14 +22,9 @@ function NotFound({ message, link = null, status = 404 }) {
         message = 'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.';
     }
 
-    useEffect(() => {
-        const starInstance = new Star('.star', 30, 100); // 创建 Star 实例
-        generateStar(starInstance); // 调用 generateStar 生成星星效果
-    }, []); // 仅在组件挂载时执行一次
-
     return (
         <div className={`notfound-container ${isDarkTheme ? 'dark' : 'light'}`}>
-            <div className="star"></div>
+            <EarthStar num={30} range={100} />
             <Switch toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
             <div className="notfound-content">
                 <h1 className="notfound-title">{status}</h1>

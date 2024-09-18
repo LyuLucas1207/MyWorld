@@ -8,13 +8,13 @@ import Switch from '../components/Switch';
 import { useNavigate } from 'react-router-dom';
 
 // 引入工具函数、自定义 Hook 和验证函数
-import { useTheme, useValidRoute, useStarEffect  } from '../utility/myUse';
+import { useTheme, useValidRoute,} from '../utility/myUse';
 import { validateEmail, validatePassword, validateUrl } from '../utility/validate';
 import { sendLoginRequest } from '../utility/sendRequest';
+import EarthStar from '../components/EarthStar';
 
 // 引入样式文件
 import '../../css/Login.css';
-import '../../css/EarthStar.css';
 
 
 
@@ -51,8 +51,6 @@ function Login() {
         navigate('/signup'); // 跳转到 /signup
     };
 
-    useStarEffect('.earth-star', 30, 100);
-
     // 密码可见性切换状态
     const [isChecked, setIsChecked] = useState(false);
     const [isPasswordVisible, setPasswordVisible] = useState(false);
@@ -64,7 +62,7 @@ function Login() {
 
     return (
         <div className="login-container">
-            <div className="earth-star"></div>
+            <EarthStar num={30} range={100} />
             <Switch toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
             <div className="login-card">
                 <h2 className="login-title">Login</h2>

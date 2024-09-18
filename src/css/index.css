@@ -33,7 +33,17 @@
     font-style: normal;
 }
 
+* {
+    scrollbar-width: none;
+    /* 隐藏 Firefox 中的滚动条 */
+    -ms-overflow-style: none;
+    /* 隐藏 IE 和旧版 Edge 中的滚动条 */
+}
 
+*::-webkit-scrollbar {
+    display: none;
+    /* 隐藏 Chrome, Safari 和新版 Edge 中的滚动条 */
+}
 
 body {
     margin: 0;
@@ -93,7 +103,7 @@ body {
 
 /* Dark 主题 */
 body.dark-theme {
-    --background-color: #1e1e1e;
+    --background-color: #0f0f0f;
     --contract-bg-color: #f3ecec;
     --text-color: #f0f2f5;
     --subtitle-color: #ccc;

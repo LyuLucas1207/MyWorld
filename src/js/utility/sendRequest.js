@@ -1,7 +1,8 @@
 import axios from 'axios'; // 引入 axios
 import { classifyCode } from './classifyInformation';
 
-const url = 'http://192.168.1.75:9999'; // 定义请求地址
+// const url = 'http://192.168.1.75:9999'; // 定义请求地址
+const url = 'http://localhost:9999'; // 定义请求地址
 
 async function checkIdentity() {
     const token = localStorage.getItem('token');
