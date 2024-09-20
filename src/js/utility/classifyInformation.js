@@ -5,6 +5,8 @@ function classifyCode(status = 999, code = 999, data = null) {
     switch (status) {
         case 200:
             return status_200(code, data);
+        case 201:
+            return status_201(code, data);
         case 500:
             return status_500(code, data);
         case 400:
@@ -13,6 +15,8 @@ function classifyCode(status = 999, code = 999, data = null) {
             return status_401(code, data);
         case 403:
             return status_403(code, data);
+        case 409:
+            return status_409(code, data);
         default:
             return status_default();
     }
@@ -47,6 +51,21 @@ function status_200(code, data) {
     return { status: 200, code: code, data: data.data, msg: data.msg };
 }
 
+function status_201(code, data) {
+    switch (code) {
+        case 0:
+            alert("注册成功！" + data.msg);
+            localStorage.setItem('token', data.data.token);
+            window.location.href = '/admin_home.html';
+            break;
+        default:
+            alert("未知错误，请重试！" + data.msg);
+            break;
+    }
+    return { status: 201, code: code, data: data.data, msg: data.msg };
+}
+
+
 function status_500(code, data) {
     switch (code) {
         case 1:
@@ -59,7 +78,7 @@ function status_500(code, data) {
             alert("未知错误，请重试！" + data.msg);
             break;
     }
-    return { status: 500 ,code: code, data: data.data, msg: data.msg };
+    return { status: 500, code: code, data: data.data, msg: data.msg };
 }
 
 function status_400(code, data) {
@@ -89,13 +108,34 @@ function status_401(code, data) {
 function status_403(code, data) {
     switch (code) {
         case 1:
+            alert("需要重新登录！" + data.msg);
+            break;
+        case 2:
             alert("无权访问，请联系管理员！" + (data && data.msg ? data.msg : ''));
             break;
+        case 3:
+            alert("错误的邀请码，请检查输入！" + data.msg);
+            break;
         default:
-            alert("未知错误，请重试！" + (data && data.msg ? data.msg : ''));
+            alert("未知错误，请重试！" + data.msg);
             break;
     }
     return { status: 403, code: code, data: data.data, msg: data.msg };
+}
+
+function status_409(code, data) {
+    switch (code) {
+        case 1:
+            alert("用户已存在，请直接登录！" + data.msg);
+            break;
+        case 2:
+            alert("错误的邀请码，请检查输入！" + data.msg);
+            break;
+        default:
+            alert("未知错误，请重试！" + data.msg);
+            break;
+    }
+    return { status: 409, code: code, data: data.data, msg: data.msg };
 }
 
 

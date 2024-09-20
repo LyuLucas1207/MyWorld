@@ -28,13 +28,13 @@ function validatePassword(password) {
 
 function validateInviteCode(inviteCode) {
     // 邀请码为 6 位，且只能包含大小写字母和数字
-    const inviteCodeRegex = /^[A-Za-z0-9]{6}$/;
+    const inviteCodeRegex = /^[A-Za-z0-9]{6,20}$/;
     return inviteCodeRegex.test(inviteCode);
 }
 
 function validateStudentId(studentId) {
-    // 学号为 8 位数字
-    const studentIdRegex = /^\d{8}$/;
+    // 学号为 6 到 12 位数字
+    const studentIdRegex = /^\d{6,12}$/;
     return studentIdRegex.test(studentId);
 }
 

@@ -90,7 +90,7 @@ function sendSignupRequest(firstName, lastName, studentId, email, password, invi
         inviteCode
     })
         .then((response) => {
-            if (response.status === 200) {
+            if (response.status === 201) {
                 classifyCode(response.status, response.data.code, response.data);
             }
         })
