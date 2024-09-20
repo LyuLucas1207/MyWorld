@@ -104,19 +104,47 @@ function status_default() {
     return { status: 999, code: 999, data: null, msg: '未知错误，请重试！' };
 }
 
-
-
 function classifyLink(link) {
+    const linkStyle = {
+        top: '50px',
+        fontSize: '1.2rem',
+        color: 'var(--link-text-color)',
+        backgroundColor: 'var(--link-bg-color)',
+        textDecoration: 'none',
+        padding: '12px 24px',
+        borderRadius: '5px',
+        boxShadow: '0 4px 10px rgba(0, 123, 255, 0.2)',
+        transition: 'background-color 0.3s ease, box-shadow 0.3s ease',
+    };
+
+    const linkHoverStyle = {
+        backgroundColor: 'var(--link-hover-bg-color)',
+        boxShadow: '0 6px 14px rgba(0, 86, 179, 0.3)',
+    };
+
+    const handleHover = (e, isHover) => {
+        e.target.style.backgroundColor = isHover ? linkHoverStyle.backgroundColor : linkStyle.backgroundColor;
+        e.target.style.boxShadow = isHover ? linkHoverStyle.boxShadow : linkStyle.boxShadow;
+    };
+
     switch (link) {
         case '/login':
-            return <Link to={link} className="notfound-link">Go to Login</Link>;
+            return (
+                <Link to={link} className="link_element" style={linkStyle} onMouseOver={(e) => handleHover(e, true)} onMouseOut={(e) => handleHover(e, false)}>Go to Login</Link>
+            );
         case '/admin.html':
-            return <a href="admin.html" className="notfound-link">Go to Admin Page</a>;
+            return (
+                <a href="admin.html" className="link_element" style={linkStyle} onMouseOver={(e) => handleHover(e, true)} onMouseOut={(e) => handleHover(e, false)}>Go to Admin Page</a>
+            );
         case '/admin_home.html':
-            return <a href="admin.html" className="notfound-link">Go to Admin Page</a>;
+            return (
+                <a href="admin.html" className="link_element" style={linkStyle} onMouseOver={(e) => handleHover(e, true)} onMouseOut={(e) => handleHover(e, false)}>Go to Admin Page</a>
+            );
         default:
             // 默认返回首页链接
-            return <Link to="/" className="notfound-link">Go Back to Home</Link>;
+            return (
+                <Link to="/" className="link_element" style={linkStyle} onMouseOver={(e) => handleHover(e, true)} onMouseOut={(e) => handleHover(e, false)}>Go Back to Home</Link>
+            );
     }
 }
 

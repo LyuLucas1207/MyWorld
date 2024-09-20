@@ -1,19 +1,32 @@
 html,
 body {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-.login-form_container {
+/* 容器样式，居中对齐 */
+.signup-form_container {
+    width: 100vw;
+    min-height: 100vh;
+    height: max-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     background-color: var(--login-background-color);
-    margin-top: 20px;
+    padding-top: 160px;
+    padding-bottom: 50px;
+    margin-bottom: 100px;
 }
 
-.login-form_card {
+@media screen and (max-width: 1000px) {
+    .signup-form_container {
+        padding-top: 160px;
+    }
+}
+
+/* 拟态风格卡片 */
+.signup-form_card {
     background-color: var(--login-content-bg-color);
     box-shadow: inset 10px 10px 20px var(--login-shadow-dark),
         inset -10px -10px 20px var(--login-shadow-light);
@@ -31,36 +44,54 @@ body {
     transition: box-shadow 0.3s ease;
 }
 
-.login-form_card:hover {
+.signup-form_card:hover {
     box-shadow: 5px 5px 10px var(--login-shadow-dark),
         -5px -5px 10px var(--login-shadow-light);
 }
 
 @media screen and (max-width: 1000px) {
-    .login-form_card {
-        padding: 20px 20px 30px 20px;
+    .signup-form_card {
+        padding: 0px 20px 30px 20px;
         border-radius: 10px;
         width: 75%;
         height: max-content;
         transform: translateY(-90px);
     }
 
-    .login-form_card:hover {
+    .signup-form_card:hover {
         box-shadow: 3px 3px 6px var(--login-shadow-dark),
             -3px -3px 6px var(--login-shadow-light);
     }
 
-    .login-form_card:focus-within {
+    .signup-form_card:focus-within {
         transform: translateY(-90px) !important;
         transition: none !important;
     }
 }
 
-.login-form_form {
+.signup-form_form {
     width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.login-form_title {
+.signup-form_name {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.signup-form_name-group {
+    width: 45%;
+    text-align: left;
+
+}
+
+/* 标题样式 */
+.signup-form_title {
     font-size: 2.5rem;
     font-weight: 1500;
     color: var(--login-title-color);
@@ -68,18 +99,33 @@ body {
 }
 
 @media screen and (max-width: 1000px) {
-    .login-form_title {
+    .signup-form_title {
         font-size: 1.8rem;
     }
 }
 
-.login-form_input-group {
+/* 输入框容器和样式 */
+.signup-form_input-group {
     margin-bottom: 20px;
     text-align: left;
     width: 100%;
 }
 
-.login-form_input-group label {
+.signup-form_input-group input::placeholder,
+.signup-form_name-group input::placeholder {
+    font-size: 14px;
+}
+
+@media screen and (max-width: 1000px) {
+    .signup-form_input-group input::placeholder,
+    .signup-form_name-group input::placeholder {
+        font-size: 10px;
+    }
+    
+}
+
+.signup-form_input-group label,
+.signup-form_name-group label {
     color: var(--login-text-color);
     font-size: 20px;
     margin-bottom: 5px;
@@ -88,16 +134,17 @@ body {
 }
 
 @media screen and (max-width: 1000px) {
-    .login-form_input-group label {
+    .signup-form_input-group label,
+    .signup-form_name-group label {
         font-size: 0.8rem;
     }
 }
 
-.login-form_input-group input {
+.signup-form_input-group input,
+.signup-form_name-group input {
     width: 95%;
-    padding: 15px 0px 15px 15px;
-    margin: 10px 0px 20px 0px;
-    margin-bottom: 20px;
+    padding: 15px;
+    margin: 10px 0 20px 0;
     border: none;
     border-radius: 50px;
     background-color: var(--login-contract-bg-color);
@@ -108,22 +155,24 @@ body {
 }
 
 @media screen and (max-width: 1000px) {
-    .login-form_input-group input {
+    .signup-form_input-group input,
+    .signup-form_name-group input {
         margin-bottom: 5px;
-        margin: 5px 0px 10px 0px;
-        padding: 8px 0px 8px 10px;
+        padding: 8px;
         border-radius: 40px;
         font-size: 15px;
     }
 }
 
-.login-form_input-group input:focus {
+.signup-form_input-group input:focus,
+.signup-form_name-group input:focus {
     outline: none;
     box-shadow: 6px 6px 10px var(--login-shadow-dark),
         -6px -6px 10px var(--login-shadow-light);
 }
 
-.login-form_btn {
+/* 注册按钮 */
+.signup-form_btn {
     width: 100%;
     padding: 15px;
     background-color: var(--login-link-bg-color);
@@ -136,40 +185,42 @@ body {
 }
 
 @media screen and (max-width: 1000px) {
-    .login-form_btn {
+    .signup-form_btn {
         padding: 10px;
         border-radius: 8px;
         font-size: 1rem;
     }
 }
 
-.login-form_btn:hover {
+.signup-form_btn:hover {
     background-color: var(--login-link-hover-bg-color);
 }
 
-.login-form_signup-text {
+/* 链接文本样式 */
+.signup-form_text {
     margin-top: 20px;
     color: var(--login-subtitle-color);
 }
 
 @media screen and (max-width: 1000px) {
-    .login-form_signup-text {
+    .signup-form_text {
         font-size: 0.8rem;
     }
 }
 
-.login-form_signup-link {
+.signup-form_link {
     color: var(--login-link-bg-color);
     cursor: pointer;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
-.login-form_signup-link:hover {
+.signup-form_link:hover {
     color: var(--login-link-hover-bg-color);
 }
 
-.login-form_password-wrapper {
+/* 密码输入框的容器 */
+.signup-form_password-wrapper {
     position: relative;
     display: flex;
     justify-content: center;
@@ -177,7 +228,8 @@ body {
     flex-direction: column;
 }
 
-.login-form_tips {
+/* 密码切换按钮的样式 */
+.signup-form_tips {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -185,7 +237,7 @@ body {
     width: max-content;
 }
 
-.login-form_toggle-switch {
+.signup-form_toggle-switch {
     position: relative;
     width: 80px;
     height: 30px;
@@ -196,13 +248,13 @@ body {
 }
 
 @media screen and (max-width: 1000px) {
-    .login-form_toggle-switch {
+    .signup-form_toggle-switch {
         width: 50px;
         height: 20px;
     }
 }
 
-.login-form_switch-label {
+.signup-form_switch-label {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -213,17 +265,17 @@ body {
 }
 
 @media screen and (max-width: 1000px) {
-    .login-form_switch-label {
+    .signup-form_switch-label {
         margin-top: 10px;
         border: 2px solid var(--login-background-inverse-color);
     }
 }
 
-.login-form_checkbox {
+.signup-form_checkbox {
     display: none;
 }
 
-.login-form_slider {
+.signup-form_slider {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -232,16 +284,16 @@ body {
 }
 
 @media screen and (max-width: 1000px) {
-    .login-form_slider {
+    .signup-form_slider {
         border-radius: 20px;
     }
 }
 
-.login-form_checkbox:checked~.login-form_slider {
+.signup-form_checkbox:checked~.signup-form_slider {
     background-color: var(--login-content-bg-color);
 }
 
-.login-form_slider::before {
+.signup-form_slider::before {
     content: "";
     position: absolute;
     top: 3px;
@@ -255,7 +307,7 @@ body {
 }
 
 @media screen and (max-width: 1000px) {
-    .login-form_slider::before {
+    .signup-form_slider::before {
         top: 1.2px;
         left: 0.5px;
         width: 18px;
@@ -264,14 +316,14 @@ body {
     }
 }
 
-.login-form_checkbox:checked~.login-form_slider::before {
+.signup-form_checkbox:checked~.signup-form_slider::before {
     transform: translateX(50px);
     background-color: var(--login-background-inverse-color);
     box-shadow: none;
 }
 
 @media screen and (max-width: 1000px) {
-    .login-form_checkbox:checked~.login-form_slider::before {
+    .signup-form_checkbox:checked~.signup-form_slider::before {
         transform: translateX(30px);
     }
 }

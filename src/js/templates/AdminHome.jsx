@@ -17,9 +17,9 @@ import '../../css/import/css/boxicons.min.css';
 
 
 const ProjectList = ({ projects, fetchData }) => (
-    <div className="project-grid">
+    <div className="admin-home_project-grid">
         {Object.keys(projects).map((key) => (
-            <div key={key} className="project-card">
+            <div key={key} className="admin-home_project-card">
                 <h2>{projects[key].name}</h2>
                 <p>{projects[key].description}</p>
                 <p>状态: {projects[key].status}</p>
@@ -30,30 +30,30 @@ const ProjectList = ({ projects, fetchData }) => (
 );
 
 const Sidebar = ({ sidebarOpen, toggleCategoryMenu, categoryOpen, togglePostsMenu, postsOpen, togglePluginsMenu, pluginsOpen, fetchData }) => (
-    <div className={`sidebar ${sidebarOpen ? 'sidebar-close' : ''}`}>
-        <div className="logo-details">
+    <div className={`admin-home_sidebar ${sidebarOpen ? 'admin-home_sidebar-close' : ''}`}>
+        <div className="admin-home_logo-details">
             <i className='bx bxl-c-plus-plus'></i>
-            <span className="logo_name">Lyu World</span>
+            <span className="admin-home_logo_name">Lyu World</span>
         </div>
-        <ul className="nav-links">
+        <ul className="admin-home_nav-links">
             <li>
                 <button onClick={() => fetchData('/dashboard')}>
                     <i className='bx bx-grid-alt'></i>
-                    <span className="link_name">Dashboard</span>
+                    <span className="admin-home_link_name">Dashboard</span>
                 </button>
-                <ul className="sub-menu blank">
+                <ul className="admin-home_sub-menu admin-home_blank">
                     <li><button onClick={() => fetchData('/category')}>Category</button></li>
                 </ul>
             </li>
             <li>
-                <div className="iocn-link">
+                <div className="admin-home_iocn-link">
                     <button onClick={toggleCategoryMenu}>
                         <i className='bx bx-collection'></i>
-                        <span className="link_name">Category</span>
-                        <i className={`bx bxs-chevron-down arrow ${categoryOpen ? 'rotate' : ''}`}></i>
+                        <span className="admin-home_link_name">Category</span>
+                        <i className={`bx bxs-chevron-down admin-home_arrow ${categoryOpen ? 'admin-home_rotate' : ''}`}></i>
                     </button>
                 </div>
-                <ul className="sub-menu" style={{ display: categoryOpen ? 'block' : 'none' }}>
+                <ul className="admin-home_sub-menu" style={{ display: categoryOpen ? 'block' : 'none' }}>
                     <li><button onClick={() => fetchData('/category')}>Category</button></li>
                     <li><button onClick={() => fetchData('/html-css')}>HTML & CSS</button></li>
                     <li><button onClick={() => fetchData('/javascript')}>JavaScript</button></li>
@@ -61,14 +61,14 @@ const Sidebar = ({ sidebarOpen, toggleCategoryMenu, categoryOpen, togglePostsMen
                 </ul>
             </li>
             <li>
-                <div className="iocn-link">
+                <div className="admin-home_iocn-link">
                     <button onClick={togglePostsMenu}>
                         <i className='bx bx-book-alt'></i>
-                        <span className="link_name">Posts</span>
-                        <i className={`bx bxs-chevron-down arrow ${postsOpen ? 'rotate' : ''}`}></i>
+                        <span className="admin-home_link_name">Posts</span>
+                        <i className={`bx bxs-chevron-down admin-home_arrow ${postsOpen ? 'admin-home_rotate' : ''}`}></i>
                     </button>
                 </div>
-                <ul className="sub-menu" style={{ display: postsOpen ? 'block' : 'none' }}>
+                <ul className="admin-home_sub-menu" style={{ display: postsOpen ? 'block' : 'none' }}>
                     <li><button onClick={() => fetchData('/posts')}>Posts</button></li>
                     <li><button onClick={() => fetchData('/web-design')}>Web Design</button></li>
                     <li><button onClick={() => fetchData('/login-form')}>Login Form</button></li>
@@ -78,30 +78,30 @@ const Sidebar = ({ sidebarOpen, toggleCategoryMenu, categoryOpen, togglePostsMen
             <li>
                 <button onClick={() => fetchData('/analytics')}>
                     <i className='bx bx-pie-chart-alt-2'></i>
-                    <span className="link_name">Analytics</span>
+                    <span className="admin-home_link_name">Analytics</span>
                 </button>
-                <ul className="sub-menu blank">
+                <ul className="admin-home_sub-menu admin-home_blank">
                     <li><button onClick={() => fetchData('/analytics')}>Analytics</button></li>
                 </ul>
             </li>
             <li>
                 <button onClick={() => fetchData('/chart')}>
                     <i className='bx bx-line-chart'></i>
-                    <span className="link_name">Chart</span>
+                    <span className="admin-home_link_name">Chart</span>
                 </button>
-                <ul className="sub-menu blank">
+                <ul className="admin-home_sub-menu admin-home_blank">
                     <li><button onClick={() => fetchData('/chart')}>Chart</button></li>
                 </ul>
             </li>
             <li>
-                <div className="iocn-link">
+                <div className="admin-home_iocn-link">
                     <button onClick={togglePluginsMenu}>
                         <i className='bx bx-plug'></i>
-                        <span className="link_name">Plugins</span>
-                        <i className={`bx bxs-chevron-down arrow ${pluginsOpen ? 'rotate' : ''}`}></i>
+                        <span className="admin-home_link_name">Plugins</span>
+                        <i className={`bx bxs-chevron-down admin-home_arrow ${pluginsOpen ? 'admin-home_rotate' : ''}`}></i>
                     </button>
                 </div>
-                <ul className="sub-menu" style={{ display: pluginsOpen ? 'block' : 'none' }}>
+                <ul className="admin-home_sub-menu" style={{ display: pluginsOpen ? 'block' : 'none' }}>
                     <li><button onClick={() => fetchData('/plugins')}>Plugins</button></li>
                     <li><button onClick={() => fetchData('/ui-face')}>UI Face</button></li>
                     <li><button onClick={() => fetchData('/pigments')}>Pigments</button></li>
@@ -111,38 +111,38 @@ const Sidebar = ({ sidebarOpen, toggleCategoryMenu, categoryOpen, togglePostsMen
             <li>
                 <button onClick={() => fetchData('getProjects')}>
                     <i className='bx bx-compass'></i>
-                    <span className="link_name">Explore</span>
+                    <span className="admin-home_link_name">Explore</span>
                 </button>
-                <ul className="sub-menu blank">
+                <ul className="admin-home_sub-menu admin-home_blank">
                     <li><button onClick={() => fetchData('/explore')}>Explore</button></li>
                 </ul>
             </li>
             <li>
                 <button onClick={() => fetchData('/history')}>
                     <i className='bx bx-history'></i>
-                    <span className="link_name">History</span>
+                    <span className="admin-home_link_name">History</span>
                 </button>
-                <ul className="sub-menu blank">
+                <ul className="admin-home_sub-menu admin-home_blank">
                     <li><button onClick={() => fetchData('/history')}>History</button></li>
                 </ul>
             </li>
             <li>
                 <button onClick={() => fetchData('/setting')}>
                     <i className='bx bx-cog'></i>
-                    <span className="link_name">Setting</span>
+                    <span className="admin-home_link_name">Setting</span>
                 </button>
-                <ul className="sub-menu blank">
+                <ul className="admin-home_sub-menu admin-home_blank">
                     <li><button onClick={() => fetchData('/setting')}>Setting</button></li>
                 </ul>
             </li>
             <li>
-                <div className="profile-details">
-                    <div className="profile-content">
+                <div className="admin-home_profile-details">
+                    <div className="admin-home_profile-content">
                         <img src="/glask.png" alt="profile" />
                     </div>
-                    <div className="name-job">
-                        <div className="profile_name">Lucas Lyu</div>
-                        <div className="job">Computer Engineering</div>
+                    <div className="admin-home_name-job">
+                        <div className="admin-home_profile_name">Lucas Lyu</div>
+                        <div className="admin-home_job">Computer Engineering</div>
                     </div>
                     <i className='bx bx-log-out'></i>
                 </div>
@@ -177,7 +177,6 @@ const AdminHome = () => {
         firstLoad();
     }, []);
 
-
     const fetchData = async (projectUrl) => {
         setLoading(true);
         try {
@@ -203,7 +202,7 @@ const AdminHome = () => {
         console.log('status:', status);
         if (status === 400) {
             console.log('status:', status);
-            return <NotFound message={error} link="/" status = {status} />;
+            return <NotFound message={error} link="/" status={status} />;
         }
         return <NotFound message={error} link="/admin.html" />;
     }
@@ -221,12 +220,12 @@ const AdminHome = () => {
                 pluginsOpen={pluginsOpen}
                 fetchData={fetchData}
             />
-            <section className="home-section">
-                <button className="home-content" onClick={toggleSidebar}>
+            <section className="admin-home_home-section">
+                <button className="admin-home_home-content" onClick={toggleSidebar}>
                     <i className='bx bx-menu'></i>
                     <span>Nagivation SliderBar</span>
                 </button>
-                <div className="infor">
+                <div className="admin-home_infor">
                     <h1>项目列表</h1>
                     {loading ? (
                         <TentLoader />

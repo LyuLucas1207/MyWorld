@@ -1,150 +1,13 @@
-/* 
-body,
-html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f2f5;
-}
 
-
-.notfound-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url('https://cdn.jsdelivr.net/gh/duyanpeng/img/404-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    text-align: center;
-    margin: 0 20px;
-}
-
-
-
-.notfound-content {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-
-@media screen and (max-width: 767px) {
-    .notfound-content {
-        padding: 20px;
-    }
-}
-
-.notfound-title {
-    font-size: 10rem;
-    color: #ff4757;
-    margin-bottom: 20px;
-    font-weight: bold;
-    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
-    animation: bounce 0.5s infinite alternate;
-}
-
-@media screen and (max-width: 767px) {
-    .notfound-title {
-        font-size: 6rem;
-    }
-    
-}
-
-.notfound-subtitle {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-@media screen and (max-width: 767px) {
-    .notfound-subtitle {
-        font-size: 1.5rem;
-    }
-}
-
-.notfound-message {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-@media screen and (max-width: 767px) {
-    .notfound-message {
-        font-size: 1rem;
-    }
-    
-}
-
-.truckcar, .link{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    margin: 10px;
-}
-
-.notfound-link {
-    top: 50px;
-    font-size: 1.2rem;
-    color: #fff;
-    background-color: #ff0037;
-    text-decoration: none;
-    padding: 12px 24px;
-    border-radius: 5px;
-    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-
-
-.notfound-link:hover {
-    background-color: #0056b3;
-    box-shadow: 0 6px 14px rgba(0, 86, 179, 0.3);
-}
-
-@keyframes bounce {
-    from {
-        transform: translateY(0);
-    }
-
-    to {
-        transform: translateY(-100px);
-    }
-}
-
-@media screen and (max-width: 767px) {
-    @keyframes bounce {
-        from {
-            transform: translateY(0);
-        }
-
-        to {
-            transform: translateY(-50px);
-        }
-        
-    }
-    
-} */
-
-/* 通用样式 */
 body,
 html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: var(--background-color, #f0f2f5);
-    /* 默认主题颜色 */
     overflow-x: hidden;
 }
-
-.notfound-container {
+.notfound_container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,7 +21,7 @@ html {
 }
 
 /* 内容区域样式 */
-.notfound-content {
+.notfound_content {
     margin: 20px 0;
     display: flex;
     flex-direction: column;
@@ -173,14 +36,14 @@ html {
 }
 
 @media screen and (max-width: 767px) {
-    .notfound-content {
+    .notfound_content {
         padding: 20px;
         height: 65%;
     }
 }
 
 /* 标题样式 */
-.notfound-title {
+.notfound_title {
     font-size: 8rem;
     color: var(--title-color);
     margin-bottom: 20px;
@@ -189,29 +52,27 @@ html {
     animation: bounce 0.5s infinite alternate;
 }
 
-
-
 @media screen and (max-width: 767px) {
-    .notfound-title {
+    .notfound_title {
         font-size: 5rem;
     }
 }
 
 /* 副标题样式 */
-.notfound-subtitle {
+.notfound_subtitle {
     font-size: 1.5rem;
     color: var(--text-color);
     margin-bottom: 20px;
 }
 
 @media screen and (max-width: 767px) {
-    .notfound-subtitle {
+    .notfound_subtitle {
         font-size: 1rem;
     }
 }
 
 /* 消息文本样式 */
-.notfound-message {
+.notfound_message {
     font-size: 1rem;
     color: var(--subtitle-color);
     margin-bottom: 30px;
@@ -219,14 +80,14 @@ html {
 }
 
 @media screen and (max-width: 767px) {
-    .notfound-message {
+    .notfound_message {
         font-size: 0.8rem;
     }
 }
 
 /* 卡车动画与链接 */
-.truckcar,
-.link {
+.notfound_truckcar,
+.notfound_link-container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -237,7 +98,7 @@ html {
 }
 
 /* 链接样式 */
-.notfound-link {
+.notfound_link {
     top: 50px;
     font-size: 1.2rem;
     color: var(--link-text-color);
@@ -250,13 +111,12 @@ html {
 }
 
 @media screen and (max-width: 767px) {
-    .notfound-link {
+    .notfound_link {
         font-size: 0.8rem;
     }
-
 }
 
-.notfound-link:hover {
+.notfound_link:hover {
     background-color: var(--link-hover-bg-color);
     box-shadow: 0 6px 14px rgba(0, 86, 179, 0.3);
 }

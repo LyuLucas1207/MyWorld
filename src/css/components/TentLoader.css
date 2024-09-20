@@ -1,4 +1,4 @@
-.tentContainer {
+.tent-loader_container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,7 +8,7 @@
     text-align: center;
 }
 
-.tentInnerContainer {
+.tent-loader_inner-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,37 +17,34 @@
     height: 45%;
     background-color: var(--content-bg-color);
     padding: 70px 0 30px 30px;
-    /* top right bottom left */
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 1200px) {
-    .tentInnerContainer {
+    .tent-loader_inner-container {
         width: 80%;
         padding: 40px 0 20px 20px;
     }
-
 }
 
-.tentTitle {
+.tent-loader_title {
     font-size: 3rem;
     color: #ff4757;
     margin-bottom: 20px;
     font-weight: bold;
     text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
-    animation: bounce 0.5s infinite alternate;
+    animation: tent-loader_bounce 0.5s infinite alternate;
 }
 
 @media screen and (max-width: 1000px) {
-    .tentTitle {
+    .tent-loader_title {
         font-size: 1.5rem;
     }
 }
 
-
 /* From Uiverse.io by Admin12121 */
-@keyframes stageBackground {
+@keyframes tent-loader_stage-background {
 
     0%,
     10%,
@@ -62,7 +59,7 @@
     }
 }
 
-@keyframes earthRotation {
+@keyframes tent-loader_earth-rotation {
     from {
         transform: rotate(0deg);
     }
@@ -72,7 +69,7 @@
     }
 }
 
-@keyframes sunrise {
+@keyframes tent-loader_sunrise {
 
     0%,
     10%,
@@ -87,9 +84,8 @@
     }
 }
 
-
 @media screen and (max-width: 768px) {
-    @keyframes sunrise {
+    @keyframes tent-loader_sunrise {
 
         0%,
         10%,
@@ -103,10 +99,9 @@
             box-shadow: 0 0 0 0 #5ad6bd, 0 0 0 0 #4acead, 0 0 0 0 rgba(74, 206, 173, 0.6), 0 0 0 0 rgba(74, 206, 173, 0.3);
         }
     }
-    
 }
 
-@keyframes moonOrbit {
+@keyframes tent-loader_moon-orbit {
     25% {
         transform: rotate(-60deg);
     }
@@ -125,7 +120,7 @@
     }
 }
 
-@keyframes nightTime {
+@keyframes tent-loader_night-time {
 
     0%,
     90% {
@@ -138,7 +133,7 @@
     }
 }
 
-@keyframes hotPan {
+@keyframes tent-loader_hot-pan {
 
     0%,
     90% {
@@ -151,7 +146,7 @@
     }
 }
 
-@keyframes heat {
+@keyframes tent-loader_heat {
 
     0%,
     90% {
@@ -164,7 +159,7 @@
     }
 }
 
-@keyframes smoke {
+@keyframes tent-loader_smoke {
 
     0%,
     50%,
@@ -179,7 +174,7 @@
     }
 }
 
-@keyframes fire {
+@keyframes tent-loader_fire {
 
     0%,
     90%,
@@ -193,7 +188,7 @@
     }
 }
 
-@keyframes treeShake {
+@keyframes tent-loader_tree-shake {
     0% {
         transform: rotate(0deg);
     }
@@ -223,7 +218,7 @@
     }
 }
 
-@keyframes fireParticles {
+@keyframes tent-loader_fire-particles {
     0% {
         height: 30%;
         opacity: 1;
@@ -253,7 +248,7 @@
     }
 }
 
-@keyframes fireLines {
+@keyframes tent-loader_fire-lines {
 
     0%,
     25%,
@@ -267,7 +262,7 @@
     }
 }
 
-.scene {
+.tent-loader_scene {
     display: flex;
     margin: 0 auto 80px auto;
     justify-content: center;
@@ -278,21 +273,21 @@
 }
 
 @media screen and (max-width: 768px) {
-    .scene {
+    .tent-loader_scene {
         width: 100%;
         height: 225px;
         margin-bottom: 0;
     }
 }
 
-.forest {
+.tent-loader_forest {
     display: flex;
     width: 75%;
     height: 90%;
     position: relative;
 }
 
-.tree {
+.tent-loader_tree {
     display: block;
     width: 50%;
     position: absolute;
@@ -300,7 +295,7 @@
     opacity: 0.4;
 }
 
-.tree .branch {
+.tent-loader_branch {
     width: 80%;
     height: 0;
     margin: 0 auto;
@@ -309,7 +304,7 @@
     overflow: hidden;
 }
 
-.tree .branch:before {
+.tent-loader_branch:before {
     content: "";
     display: block;
     width: 0;
@@ -320,12 +315,12 @@
     border-bottom: 950px solid #000;
 }
 
-.tree .branch.branch-top {
+.tent-loader_branch.tent-loader_branch-top {
     transform-origin: 50% 100%;
-    animation: treeShake 0.5s linear infinite;
+    animation: tent-loader_tree-shake 0.5s linear infinite;
 }
 
-.tree .branch.branch-middle {
+.tent-loader_branch.tent-loader_branch-middle {
     width: 90%;
     padding-left: 45%;
     padding-bottom: 65%;
@@ -333,7 +328,7 @@
     margin-top: -25%;
 }
 
-.tree .branch.branch-bottom {
+.tent-loader_branch.tent-loader_branch-bottom {
     width: 100%;
     padding-left: 50%;
     padding-bottom: 80%;
@@ -341,69 +336,69 @@
     margin-top: -40%;
 }
 
-.tree1 {
+.tent-loader_tree1 {
     width: 31%;
 }
 
-.tree1 .branch-top {
+.tent-loader_tree1 .tent-loader_branch-top {
     transition-delay: 0.3s;
 }
 
-.tree2 {
+.tent-loader_tree2 {
     width: 39%;
     left: 9%;
 }
 
-.tree2 .branch-top {
+.tent-loader_tree2 .tent-loader_branch-top {
     transition-delay: 0.4s;
 }
 
-.tree3 {
+.tent-loader_tree3 {
     width: 32%;
     left: 24%;
 }
 
-.tree3 .branch-top {
+.tent-loader_tree3 .tent-loader_branch-top {
     transition-delay: 0.5s;
 }
 
-.tree4 {
+.tent-loader_tree4 {
     width: 37%;
     left: 34%;
 }
 
-.tree4 .branch-top {
+.tent-loader_tree4 .tent-loader_branch-top {
     transition-delay: 0.6s;
 }
 
-.tree5 {
+.tent-loader_tree5 {
     width: 44%;
     left: 44%;
 }
 
-.tree5 .branch-top {
+.tent-loader_tree5 .tent-loader_branch-top {
     transition-delay: 0.7s;
 }
 
-.tree6 {
+.tent-loader_tree6 {
     width: 34%;
     left: 61%;
 }
 
-.tree6 .branch-top {
+.tent-loader_tree6 .tent-loader_branch-top {
     transition-delay: 0.2s;
 }
 
-.tree7 {
+.tent-loader_tree7 {
     width: 24%;
     left: 76%;
 }
 
-.tree7 .branch-top {
+.tent-loader_tree7 .tent-loader_branch-top {
     transition-delay: 0.1s;
 }
 
-.tent {
+.tent-loader_tent {
     width: 60%;
     height: 30%;
     position: absolute;
@@ -413,14 +408,12 @@
     text-align: right;
 }
 
-.roof {
+.tent-loader_roof {
     display: inline-block;
     width: 45%;
     height: 100%;
     margin-right: 10%;
     position: relative;
-    /*bottom: 0;
-  right: 9%;*/
     z-index: 1;
     border-top: 4px solid #4D4454;
     border-right: 4px solid #4D4454;
@@ -428,19 +421,10 @@
     border-top-right-radius: 6px;
     transform: skew(30deg);
     box-shadow: inset -3px 3px 0px 0px #F7B563;
-    /*background: linear-gradient(
-    to bottom, 
-    rgba(246,212,132,1) 0%,
-    rgba(246,212,132,1) 24%,
-    rgba(#F0B656,1) 25%,
-    rgba(#F0B656,1) 74%,
-    rgba(235,151,53,1) 75%,
-    rgba(235,151,53,1) 100%
-  );*/
     background: #f6d484;
 }
 
-.roof:before {
+.tent-loader_roof:before {
     content: "";
     width: 70%;
     height: 70%;
@@ -452,7 +436,7 @@
     background-color: #E78C20;
 }
 
-.roof:after {
+.tent-loader_roof:after {
     content: "";
     height: 75%;
     width: 100%;
@@ -463,7 +447,7 @@
     background: linear-gradient(to bottom, rgba(231, 140, 32, 0.4) 0%, rgba(231, 140, 32, 0.4) 64%, rgba(231, 140, 32, 0.8) 65%, rgba(231, 140, 32, 0.8) 100%);
 }
 
-.roof-border-left {
+.tent-loader_roof-border-left {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -477,26 +461,26 @@
     transform: rotate(35deg);
 }
 
-.roof-border-left .roof-border {
+.tent-loader_roof-border-left .tent-loader_roof-border {
     display: block;
     width: 100%;
     border-radius: 2px;
     border: 2px solid #4D4454;
 }
 
-.roof-border-left .roof-border1 {
+.tent-loader_roof-border-left .tent-loader_roof-border1 {
     height: 40%;
 }
 
-.roof-border-left .roof-border2 {
+.tent-loader_roof-border-left .tent-loader_roof-border2 {
     height: 10%;
 }
 
-.roof-border-left .roof-border3 {
+.tent-loader_roof-border-left .tent-loader_roof-border3 {
     height: 40%;
 }
 
-.floor {
+.tent-loader_floor {
     width: 80%;
     position: absolute;
     right: 10%;
@@ -504,23 +488,23 @@
     z-index: 1;
 }
 
-.floor .ground {
+.tent-loader_floor .tent-loader_ground {
     position: absolute;
     border-radius: 2px;
     border: 2px solid #4D4454;
 }
 
-.floor .ground.ground1 {
+.tent-loader_floor .tent-loader_ground1 {
     width: 65%;
     left: 0;
 }
 
-.floor .ground.ground2 {
+.tent-loader_floor .tent-loader_ground2 {
     width: 30%;
     right: 0;
 }
 
-.fireplace {
+.tent-loader_fireplace {
     display: block;
     width: 24%;
     height: 20%;
@@ -528,7 +512,7 @@
     left: 5%;
 }
 
-.fireplace:before {
+.tent-loader_fireplace:before {
     content: "";
     display: block;
     width: 8%;
@@ -540,7 +524,7 @@
     background: #4D4454;
 }
 
-.fireplace .support {
+.tent-loader_fireplace .tent-loader_support {
     display: block;
     height: 105%;
     width: 2px;
@@ -550,7 +534,7 @@
     border: 2px solid #4D4454;
 }
 
-.fireplace .support:before {
+.tent-loader_fireplace .tent-loader_support:before {
     content: "";
     width: 100%;
     height: 15%;
@@ -563,7 +547,7 @@
     transform: rotate(45deg);
 }
 
-.fireplace .support:after {
+.tent-loader_fireplace .tent-loader_support:after {
     content: "";
     width: 100%;
     height: 15%;
@@ -576,18 +560,18 @@
     transform: rotate(-45deg);
 }
 
-.fireplace .support:nth-child(1) {
+.tent-loader_fireplace .tent-loader_support:nth-child(1) {
     left: 85%;
 }
 
-.fireplace .bar {
+.tent-loader_fireplace .tent-loader_bar {
     width: 100%;
     height: 2px;
     border-radius: 2px;
     border: 2px solid #4D4454;
 }
 
-.fireplace .hanger {
+.tent-loader_fireplace .tent-loader_hanger {
     display: block;
     width: 2px;
     height: 25%;
@@ -597,7 +581,7 @@
     border: 2px solid #4D4454;
 }
 
-.fireplace .pan {
+.tent-loader_fireplace .tent-loader_pan {
     display: block;
     width: 25%;
     height: 50%;
@@ -607,10 +591,10 @@
     top: 25%;
     left: 35%;
     overflow: hidden;
-    animation: heat 5s linear infinite;
+    animation: tent-loader_heat 5s linear infinite;
 }
 
-.fireplace .pan:before {
+.tent-loader_fireplace .tent-loader_pan:before {
     content: "";
     display: block;
     height: 53%;
@@ -620,10 +604,10 @@
     z-index: -1;
     border-top: 4px solid #4D4454;
     background-color: #74667e;
-    animation: hotPan 5s linear infinite;
+    animation: tent-loader_hot-pan 5s linear infinite;
 }
 
-.fireplace .smoke {
+.tent-loader_fireplace .tent-loader_smoke {
     display: block;
     width: 20%;
     height: 25%;
@@ -632,10 +616,10 @@
     left: 37%;
     background-color: white;
     filter: blur(5px);
-    animation: smoke 5s linear infinite;
+    animation: tent-loader_smoke 5s linear infinite;
 }
 
-.fireplace .fire {
+.tent-loader_fireplace .tent-loader_fire {
     display: block;
     width: 25%;
     height: 120%;
@@ -643,10 +627,10 @@
     bottom: 0;
     left: 33%;
     z-index: 1;
-    animation: fire 5s linear infinite;
+    animation: tent-loader_fire 5s linear infinite;
 }
 
-.fireplace .fire:before {
+.tent-loader_fireplace .tent-loader_fire:before {
     content: "";
     display: block;
     width: 100%;
@@ -659,53 +643,53 @@
     background-color: #efb54a;
 }
 
-.fireplace .fire .line {
+.tent-loader_fireplace .tent-loader_fire .tent-loader_line {
     display: block;
     width: 2px;
     height: 100%;
     position: absolute;
     bottom: 0;
-    animation: fireLines 1s linear infinite;
+    animation: tent-loader_fire-lines 1s linear infinite;
 }
 
-.fireplace .fire .line2 {
+.tent-loader_fireplace .tent-loader_fire .tent-loader_line2 {
     left: 50%;
     margin-left: -1px;
     animation-delay: 0.3s;
 }
 
-.fireplace .fire .line3 {
+.tent-loader_fireplace .tent-loader_fire .tent-loader_line3 {
     right: 0;
     animation-delay: 0.5s;
 }
 
-.fireplace .fire .line .particle {
+.tent-loader_fireplace .tent-loader_fire .tent-loader_line .tent-loader_particle {
     height: 10%;
     position: absolute;
     top: 100%;
     z-index: 1;
     border-radius: 2px;
     border: 2px solid #efb54a;
-    animation: fireParticles 0.5s linear infinite;
+    animation: tent-loader_fire-particles 0.5s linear infinite;
 }
 
-.fireplace .fire .line .particle1 {
+.tent-loader_fireplace .tent-loader_fire .tent-loader_line .tent-loader_particle1 {
     animation-delay: 0.1s;
 }
 
-.fireplace .fire .line .particle2 {
+.tent-loader_fireplace .tent-loader_fire .tent-loader_line .tent-loader_particle2 {
     animation-delay: 0.3s;
 }
 
-.fireplace .fire .line .particle3 {
+.tent-loader_fireplace .tent-loader_fire .tent-loader_line .tent-loader_particle3 {
     animation-delay: 0.6s;
 }
 
-.fireplace .fire .line .particle4 {
+.tent-loader_fireplace .tent-loader_fire .tent-loader_line .tent-loader_particle4 {
     animation-delay: 0.9s;
 }
 
-.time-wrapper {
+.tent-loader_time-wrapper {
     display: block;
     width: 100%;
     height: 200px;
@@ -713,17 +697,17 @@
     overflow: hidden;
 }
 
-.time {
+.tent-loader_time {
     display: block;
     width: 100%;
     height: 200%;
     position: absolute;
     transform-origin: 50% 50%;
     transform: rotate(270deg);
-    animation: earthRotation 5s linear infinite;
+    animation: tent-loader_earth-rotation 5s linear infinite;
 }
 
-.time .day {
+.tent-loader_time .tent-loader_day {
     display: block;
     width: 20px;
     height: 20px;
@@ -732,15 +716,15 @@
     left: 40%;
     border-radius: 50%;
     box-shadow: 0 0 0 25px #5ad6bd, 0 0 0 40px #4acead, 0 0 0 60px rgba(74, 206, 173, 0.6), 0 0 0 90px rgba(74, 206, 173, 0.3);
-    animation: sunrise 5s ease-in-out infinite;
+    animation: tent-loader_sunrise 5s ease-in-out infinite;
     background-color: #ef9431;
 }
 
-.time .night {
-    animation: nightTime 5s ease-in-out infinite;
+.tent-loader_time .tent-loader_night {
+    animation: tent-loader_night-time 5s ease-in-out infinite;
 }
 
-.time .night .star {
+.tent-loader_time .tent-loader_night .tent-loader_star {
     display: block;
     width: 4px;
     height: 4px;
@@ -750,47 +734,47 @@
     background-color: #fff;
 }
 
-.time .night .star-big {
+.tent-loader_time .tent-loader_night .tent-loader_star-big {
     width: 6px;
     height: 6px;
 }
 
-.time .night .star1 {
+.tent-loader_time .tent-loader_night .tent-loader_star1 {
     right: 23%;
     bottom: 25%;
 }
 
-.time .night .star2 {
+.tent-loader_time .tent-loader_night .tent-loader_star2 {
     right: 35%;
     bottom: 18%;
 }
 
-.time .night .star3 {
+.tent-loader_time .tent-loader_night .tent-loader_star3 {
     right: 47%;
     bottom: 25%;
 }
 
-.time .night .star4 {
+.tent-loader_time .tent-loader_night .tent-loader_star4 {
     right: 22%;
     bottom: 20%;
 }
 
-.time .night .star5 {
+.tent-loader_time .tent-loader_night .tent-loader_star5 {
     right: 18%;
     bottom: 30%;
 }
 
-.time .night .star6 {
+.tent-loader_time .tent-loader_night .tent-loader_star6 {
     right: 60%;
     bottom: 20%;
 }
 
-.time .night .star7 {
+.tent-loader_time .tent-loader_night .tent-loader_star7 {
     right: 70%;
     bottom: 23%;
 }
 
-.time .night .moon {
+.tent-loader_time .tent-loader_night .tent-loader_moon {
     display: block;
     width: 25px;
     height: 25px;
@@ -801,10 +785,10 @@
     transform: rotate(-60deg);
     box-shadow: 9px 9px 3px 0 white;
     filter: blur(1px);
-    animation: moonOrbit 5s ease-in-out infinite;
+    animation: tent-loader_moon-orbit 5s ease-in-out infinite;
 }
 
-.time .night .moon:before {
+.tent-loader_time .tent-loader_night .tent-loader_moon:before {
     content: "";
     display: block;
     width: 100%;

@@ -15,17 +15,27 @@ function validateUrl(Component) {
     return HashWrapper;
 }
 
-
 function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email); // 返回 true 表示合法邮箱
 }
 
 function validatePassword(password) {
-    // 密码至少 6 个字符，且不含空格
-    const passwordRegex = /^\S{6,}$/;
+    // 密码为 6 到 20 个字符，且不含空格
+    const passwordRegex = /^\S{6,20}$/;
     return passwordRegex.test(password);
 }
 
+function validateInviteCode(inviteCode) {
+    // 邀请码为 6 位，且只能包含大小写字母和数字
+    const inviteCodeRegex = /^[A-Za-z0-9]{6}$/;
+    return inviteCodeRegex.test(inviteCode);
+}
 
-export { validateEmail, validatePassword, validateUrl };
+function validateStudentId(studentId) {
+    // 学号为 8 位数字
+    const studentIdRegex = /^\d{8}$/;
+    return studentIdRegex.test(studentId);
+}
+
+export { validateUrl, validateEmail, validatePassword, validateInviteCode, validateStudentId };

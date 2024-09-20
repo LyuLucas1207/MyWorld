@@ -1,32 +1,39 @@
 import axios from 'axios'; // 引入 axios
 import { classifyCode } from './classifyInformation';
 
-// const url = 'http://192.168.1.75:9999'; // 定义请求地址
-const url = 'http://localhost:9999'; // 定义请求地址
 
-async function checkIdentity() {
+// const url = 'https://www.lucaslyu.com:9999'; // 正确使用 HTTPS 和自定义端口
+const url = 'https://192.168.1.75:9999'; // 正确使用 HTTP 和自定义端口
+
+
+function checkIdentity() {
     const token = localStorage.getItem('token');
     if (!token) {
         return classifyCode(401, 1, { msg: '未登录，请先登录！' });
     }
-    try {
-        const response = await axios.post(url, {
-            action: 'checkIdentity' // 发送的数据
-        }, {
-            headers: {
-                'Authorization': `Bearer ${token}`, // 设置请求头
-                'Content-Type': 'application/json'
-            },
-            timeout: 5000
-        }); // 设置超时时间为 5 秒
-        return classifyCode(response.status, response.data.code, response.data);
-    } catch (error) {
-        if (error.response) {
-            return classifyCode(error.response.status, error.response.data.code, error.response.data);
-        }
-        return classifyCode(500, 1, { msg: error.message });
-    }
-};
+
+    return axios.post(url, {
+        action: 'checkIdentity' // 发送的数据
+    }, {
+        headers: {
+            'Authorization': `Bearer ${token}`, // 设置请求头
+            'Content-Type': 'application/json'
+        },
+        timeout: 5000
+    })
+        .then((response) => {
+            // 成功请求时处理
+            return classifyCode(response.status, response.data.code, response.data);
+        })
+        .catch((error) => {
+            // 捕获错误时处理
+            if (error.response) {
+                return classifyCode(error.response.status, error.response.data.code, error.response.data);
+            }
+            return classifyCode(500, 1, { msg: error.message });
+        });
+}
+
 
 // 定义一个通用的函数，用于发送 POST 请求获取项目数据
 async function getDatas(action) {
@@ -53,29 +60,50 @@ async function getDatas(action) {
     }
 };
 
-async function sendLoginRequest(email, password) {
-    try {
-        const response = await axios.post(url, { // 发送 POST 请求
-            action: 'login', // 定义 action 为 login
-            email,
-            password,
+function sendLoginRequest(email, password) {
+    return axios.post(url, { // 发送 POST 请求
+        action: 'login', // 定义 action 为 login
+        email,
+        password
+    })
+        .then((response) => {
+            if (response.status === 200) {
+                classifyCode(response.status, response.data.code, response.data);
+            }
+        })
+        .catch((error) => {
+            if (error.response) {
+                classifyCode(error.response.status, error.response.data.code, error.response.data);
+            }
+            classifyCode(500, 1, { msg: error.message });
         });
+}
 
-        if (response.status === 200) {
-            classifyCode(response.status, response.data.code, response.data);
-        }
-
-
-    } catch (error) {
-        // 这里处理网络请求失败或其他错误
-        if (error.response) {
-            classifyCode(error.response.status, error.response.data.code, error.response.data);
-        }
-    }
+function sendSignupRequest(firstName, lastName, studentId, email, password, inviteCode) {
+    return axios.post(url, { // 发送 POST 请求
+        action: 'signup', // 定义 action 为 signup
+        firstName,
+        lastName,
+        studentId,
+        email,
+        password,
+        inviteCode
+    })
+        .then((response) => {
+            if (response.status === 200) {
+                classifyCode(response.status, response.data.code, response.data);
+            }
+        })
+        .catch((error) => {
+            if (error.response) {
+                classifyCode(error.response.status, error.response.data.code, error.response.data);
+            }
+            classifyCode(500, 1, { msg: error.message });
+        });
 }
 
 
-export { checkIdentity, getDatas, sendLoginRequest };
+export { checkIdentity, getDatas, sendLoginRequest, sendSignupRequest };
 
 
 

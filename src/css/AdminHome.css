@@ -1,12 +1,10 @@
 body, html {
-    /*allow overflow*/
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-
 /* Sidebar 样式 */
-.sidebar {
+.admin-home_sidebar {
     position: fixed;
     top: 0;
     left: 0;
@@ -17,12 +15,11 @@ body, html {
     transition: all 0.5s ease;
 }
 
-.sidebar-close {
+.admin-home_sidebar-close {
     width: 78px;
-    
 }
 
-.sidebar .logo-details {
+.admin-home_logo-details {
     margin-top: 5px;
     height: 60px;
     width: 100%;
@@ -30,7 +27,7 @@ body, html {
     align-items: center;
 }
 
-.sidebar .logo-details i {
+.admin-home_logo-details i {
     font-size: 30px;
     color: var(--admin-sidebar-icon-color);
     height: 50px;
@@ -39,8 +36,7 @@ body, html {
     line-height: 50px;
 }
 
-.sidebar .logo-details .logo_name {
-    
+.admin-home_logo_name {
     font-size: 22px;
     color: var(--admin-sidebar-icon-color);
     font-weight: 600;
@@ -48,47 +44,47 @@ body, html {
     transition-delay: 0.1s;
 }
 
-.sidebar-close .logo-details .logo_name {
+.admin-home_sidebar-close .admin-home_logo_name {
     transition-delay: 0s;
     opacity: 0;
     pointer-events: none;
 }
 
-.sidebar .nav-links {
+.admin-home_nav-links {
     height: 100%;
     padding: 30px 0 150px 0;
     overflow: auto;
 }
 
-.sidebar-close .nav-links {
+.admin-home_sidebar-close .admin-home_nav-links {
     overflow: visible;
 }
 
-.sidebar .nav-links::-webkit-scrollbar {
+.admin-home_nav-links::-webkit-scrollbar {
     display: none;
 }
 
-.sidebar .nav-links li {
+.admin-home_nav-links li {
     position: relative;
     list-style: none;
     transition: all 0.4s ease;
 }
 
-.sidebar .nav-links li:hover {
+.admin-home_nav-links li:hover {
     background: var(--admin-sidebar-hover-bg-color);
 }
 
-.sidebar .nav-links li .iocn-link {
+.admin-home_nav-links li .admin-home_iocn-link {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.sidebar-close .nav-links li .iocn-link {
+.admin-home_sidebar-close .admin-home_iocn-link {
     display: block;
 }
 
-.sidebar .nav-links li i {
+.admin-home_nav-links li i {
     height: 50px;
     min-width: 78px;
     text-align: center;
@@ -99,19 +95,19 @@ body, html {
     transition: all 0.3s ease;
 }
 
-.arrow {
+.admin-home_arrow {
     transition: transform 0.3s ease;
 }
 
-.rotate {
+.admin-home_rotate {
     transform: rotate(-180deg);
 }
 
-.sidebar-close .nav-links i.arrow {
+.admin-home_sidebar-close .admin-home_arrow {
     display: none;
 }
 
-.sidebar .nav-links li button {
+.admin-home_nav-links li button {
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -122,36 +118,36 @@ body, html {
     justify-content: start;
 }
 
-.sidebar .nav-links li button span {
+.admin-home_nav-links li button span {
     width: 50%;
     display: block;
     text-align: left;
 }
 
-.sidebar .nav-links li button .link_name {
+.admin-home_link_name {
     font-size: 18px;
     font-weight: 400;
     color: var(--admin-sidebar-link-name-color);
     transition: all 0.4s ease;
 }
 
-.sidebar-close .nav-links li button .link_name {
+.admin-home_sidebar-close .admin-home_link_name {
     opacity: 0;
     pointer-events: none;
 }
 
-.sidebar .nav-links li .sub-menu {
+.admin-home_sub-menu {
     width: 100%;
     padding: 6px 6px 14px 80px;
     background: var(--admin-sidebar-submenu-bg-color);
     display: none;
 }
 
-.sidebar .nav-links li.showMenu .sub-menu {
+.admin-home_nav-links li.showMenu .admin-home_sub-menu {
     display: block;
 }
 
-.sidebar .nav-links li .sub-menu button {
+.admin-home_sub-menu button {
     color: var(--admin-sidebar-submenu-text-color);
     font-size: 15px;
     padding: 5px 0;
@@ -160,11 +156,11 @@ body, html {
     transition: all 0.3s ease;
 }
 
-.sidebar .nav-links li .sub-menu button:hover {
+.admin-home_sub-menu button:hover {
     opacity: 1;
 }
 
-.sidebar-close .nav-links li .sub-menu {
+.admin-home_sidebar-close .admin-home_sub-menu {
     position: absolute;
     left: 100%;
     top: -10px;
@@ -177,24 +173,14 @@ body, html {
     transition: 0s;
 }
 
-.sidebar-close .nav-links li:hover .sub-menu {
+.admin-home_sidebar-close .admin-home_nav-links li:hover .admin-home_sub-menu {
     top: 0;
     opacity: 1;
     pointer-events: auto;
     transition: all 0.4s ease;
 }
 
-.sidebar .nav-links li .sub-menu .link_name {
-    display: none;
-}
-
-.sidebar-close .nav-links li .sub-menu .link_name {
-    font-size: 18px;
-    opacity: 1;
-    display: block;
-}
-
-.sidebar .nav-links li .sub-menu.blank {
+.admin-home_blank {
     opacity: 1;
     pointer-events: auto;
     padding: 3px 20px 6px 16px;
@@ -202,12 +188,7 @@ body, html {
     pointer-events: none;
 }
 
-.sidebar .nav-links li:hover .sub-menu.blank {
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.sidebar .profile-details {
+.admin-home_profile-details {
     position: fixed;
     bottom: 0;
     width: 260px;
@@ -219,21 +200,16 @@ body, html {
     transition: all 0.5s ease;
 }
 
-.sidebar-close .profile-details {
+.admin-home_sidebar-close .admin-home_profile-details {
     background: none;
 }
 
-.sidebar-close .profile-details {
-    width: 78px;
-    
-}
-
-.sidebar .profile-details .profile-content {
+.admin-home_profile-content {
     display: flex;
     align-items: center;
 }
 
-.sidebar .profile-details img {
+.admin-home_profile-details img {
     height: 52px;
     width: 52px;
     object-fit: cover;
@@ -243,36 +219,29 @@ body, html {
     transition: all 0.5s ease;
 }
 
-.sidebar-close .profile-details img {
+.admin-home_sidebar-close .admin-home_profile-details img {
     padding: 1px;
 }
 
-.sidebar .profile-details .profile_name,
-.sidebar .profile-details .job {
+.admin-home_profile_name,
+.admin-home_job {
     color: var(--admin-sidebar-profile-text-color);
     font-size: 18px;
     font-weight: 500;
     white-space: nowrap;
 }
 
-.sidebar-close .profile-details i,
-.sidebar-close .profile-details .profile_name,
-.sidebar-close .profile-details .job {
-    display: none;
-}
-
-.sidebar .profile-details .job {
+.admin-home_job {
     font-size: 12px;
 }
 
 /* 内容和卡片样式 */
-.home-section {
+.admin-home_home-section {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: baseline;
     align-items: left;
-
     background: var(--admin-content-bg-color);
     height: 100vh;
     left: 260px;
@@ -280,12 +249,12 @@ body, html {
     transition: all 0.5s ease;
 }
 
-.sidebar-close~.home-section {
+.admin-home_sidebar-close~.admin-home_home-section {
     left: 78px;
     width: calc(100% - 78px);
 }
 
-.home-section .home-content {
+.admin-home_home-content {
     margin-top: 8px;
     height: 60px;
     display: flex;
@@ -294,24 +263,24 @@ body, html {
     border: none;
 }
 
-.home-section .home-content .bx-menu,
-.home-section .home-content {
+.admin-home_home-content .bx-menu,
+.admin-home_home-content {
     color: var(--admin-sidebar-text-color);
     font-size: 35px;
 }
 
-.home-section .home-content .bx-menu {
+.admin-home_home-content .bx-menu {
     margin: 0 15px;
     cursor: pointer;
 }
 
-.home-section .home-content {
+.admin-home_home-content {
     font-size: 26px;
     font-weight: 600;
 }
 
 /* 项目卡片样式 */
-.infor {
+.admin-home_infor {
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -320,20 +289,19 @@ body, html {
     color: var(--admin-card-text-color);
 }
 
-.project-grid {
+.admin-home_project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 20px;
 }
 
 @media screen and (max-width: 768px) {
-    .project-grid {
+    .admin-home_project-grid {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
-    
 }
 
-.project-card {
+.admin-home_project-card {
     background-color: var(--admin-card-bg-color);
     border: 1px solid var(--admin-card-border-color);
     border-radius: 8px;
@@ -342,23 +310,23 @@ body, html {
     transition: transform 0.3s ease;
 }
 
-.project-card:hover {
+.admin-home_project-card:hover {
     transform: scale(1.05);
 }
 
-.project-card h2 {
+.admin-home_project-card h2 {
     font-size: 1.8em;
     color: var(--admin-card-text-color);
     margin-bottom: 10px;
 }
 
-.project-card p {
+.admin-home_project-card p {
     font-size: 1em;
     color: var(--admin-card-text-color);
     margin-bottom: 15px;
 }
 
-.project-card button {
+.admin-home_project-card button {
     padding: 10px 15px;
     background-color: var(--admin-button-bg-color);
     color: var(--admin-sidebar-icon-color);
@@ -368,259 +336,127 @@ body, html {
     transition: background-color 0.3s ease;
 }
 
-.project-card button:hover {
+.admin-home_project-card button:hover {
     background-color: var(--admin-button-hover-bg-color);
 }
 
-
-
-
-
-
-
-
-
-
-
+/* 响应式设计 */
 @media (max-width: 768px) {
-
-    /* Sidebar 样式 */
-    .sidebar {
+    .admin-home_sidebar {
         width: 173.33px;
     }
 
-    .sidebar-close {
+    .admin-home_sidebar-close {
         width: 52px;
     }
 
-    .sidebar .logo-details {
+    .admin-home_logo-details {
         height: 40px;
     }
 
-    .sidebar .logo-details i {
+    .admin-home_logo-details i {
         font-size: 20px;
         height: 33.33px;
         min-width: 52px;
         line-height: 33.33px;
     }
 
-    .sidebar .logo-details .logo_name {
+    .admin-home_logo_name {
         font-size: 14.67px;
     }
 
-    .sidebar .nav-links {
+    .admin-home_nav-links {
         padding: 20px 0 100px 0;
     }
 
-    .sidebar .nav-links li i {
+    .admin-home_nav-links li i {
         height: 33.33px;
         min-width: 52px;
         line-height: 33.33px;
         font-size: 13.33px;
     }
 
-    .sidebar .nav-links li .sub-menu {
+    .admin-home_sub-menu {
         padding: 4px 4px 9.33px 53.33px;
     }
 
-    .sidebar-close .nav-links li .sub-menu {
+    .admin-home_sidebar-close .admin-home_sub-menu {
         padding: 6.67px 13.33px;
     }
 
-    .sidebar .profile-details {
+    .admin-home_profile-details {
         width: 173.33px;
         padding: 4px 0;
     }
 
-    .sidebar .profile-details img {
+    .admin-home_profile-details img {
         height: 34.67px;
         width: 34.67px;
         margin: 0 9.33px 0 8px;
     }
 
-    .sidebar .profile-details .profile_name,
-    .sidebar .profile-details .job {
+    .admin-home_profile_name,
+    .admin-home_job {
         font-size: 12px;
     }
 
-    .sidebar .profile-details .job {
+    .admin-home_job {
         font-size: 8px;
     }
 
-    /* 内容和卡片样式 */
-    .home-section {
+    .admin-home_home-section {
         left: 173.33px;
         width: calc(100% - 173.33px);
     }
 
-    .sidebar-close~.home-section {
+    .admin-home_sidebar-close~.admin-home_home-section {
         left: 52px;
         width: calc(100% - 52px);
     }
 
-    .home-section .home-content {
+    .admin-home_home-content {
         height: 40px;
     }
 
-    .home-section .home-content .bx-menu,
-    .home-section .home-content {
+    .admin-home_home-content .bx-menu,
+    .admin-home_home-content {
         font-size: 23.33px;
     }
 
-    .home-section .home-content .bx-menu {
+    .admin-home_home-content .bx-menu {
         margin: 0 10px;
     }
 
-    .home-section .home-content {
+    .admin-home_home-content {
         font-size: 17.33px;
     }
 
-    /* 项目卡片样式 */
-    .infor {
+    .admin-home_infor {
         padding: 13.33px;
     }
 
-    .project-grid {
+    .admin-home_project-grid {
         gap: 13.33px;
     }
 
-    .project-card {
+    .admin-home_project-card {
         padding: 13.33px;
         border-radius: 5.33px;
         box-shadow: 0 1.33px 5.33px var(--admin-card-shadow);
     }
 
-    .project-card h2 {
+    .admin-home_project-card h2 {
         font-size: 1.2em;
         margin-bottom: 6.67px;
     }
 
-    .project-card p {
+    .admin-home_project-card p {
         font-size: 0.67em;
         margin-bottom: 10px;
     }
 
-    .project-card button {
+    .admin-home_project-card button {
         padding: 6.67px 10px;
         border-radius: 3.33px;
-    }
-
-    .sidebar .nav-links li button span {
-        width: 33.33%;
-    }
-
-    .sidebar .nav-links li button .link_name {
-        font-size: 12px;
-    }
-
-    .sidebar .nav-links li .sub-menu {
-        padding: 4px 4px 9.33px 53.33px;
-    }
-
-    .sidebar .nav-links li .sub-menu button {
-        font-size: 10px;
-        padding: 3.33px 0;
-    }
-
-    .sidebar-close .nav-links li .sub-menu {
-        padding: 6.67px 13.33px;
-    }
-
-    .sidebar-close .profile-details {
-        width: 52px;
-        overflow: hidden;
-    }
-
-    .sidebar-close~.home-section {
-        left: 52px;
-        width: calc(100% - 52px);
-    }
-
-    .home-section .home-content {
-        height: 40px;
-        font-size: 17.33px;
-    }
-
-    .project-card {
-        padding: 13.33px;
-        border-radius: 5.33px;
-    }
-
-    .project-card h2 {
-        font-size: 1.2em;
-        margin-bottom: 6.67px;
-    }
-
-    .project-card p {
-        font-size: 0.67em;
-        margin-bottom: 10px;
-    }
-
-    .project-card button {
-        padding: 6.67px 10px;
-        border-radius: 3.33px;
-    }
-
-    /* Sidebar 样式 */
-    .sidebar {
-        width: 173.33px;
-    }
-
-    .sidebar-close {
-        width: 52px;
-    }
-
-    .sidebar .logo-details {
-        height: 40px;
-    }
-
-    .sidebar .logo-details i {
-        font-size: 20px;
-        height: 33.33px;
-        min-width: 52px;
-        line-height: 33.33px;
-    }
-
-    .sidebar .logo-details .logo_name {
-        font-size: 14.67px;
-    }
-
-    .sidebar .nav-links {
-        padding: 20px 0 100px 0;
-    }
-
-    .sidebar .nav-links li i {
-        height: 33.33px;
-        min-width: 52px;
-        line-height: 33.33px;
-        font-size: 13.33px;
-    }
-
-    .sidebar .nav-links li .sub-menu {
-        padding: 4px 4px 9.33px 53.33px;
-    }
-
-    .sidebar-close .nav-links li .sub-menu {
-        padding: 6.67px 13.33px;
-    }
-
-    .sidebar .profile-details {
-        width: 173.33px;
-        padding: 4px 0;
-    }
-
-    .sidebar .profile-details img {
-        height: 34.67px;
-        width: 34.67px;
-        margin: 0 9.33px 0 8px;
-    }
-
-    .sidebar .profile-details .profile_name,
-    .sidebar .profile-details .job {
-        font-size: 12px;
-    }
-
-    .sidebar .profile-details .job {
-        font-size: 8px;
     }
 }

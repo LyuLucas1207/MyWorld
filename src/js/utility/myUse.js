@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { Star, generateStar } from './generateStar';
-import { Firework, resizeCanvas, animate } from './generateFirework';
+import { Firework, resizeCanvas, generateFirework, Star, generateStar } from './generateAnimation';
 
 function useValidRoute(validPaths, url = '/not-found') {
     const location = useLocation();
@@ -69,7 +68,7 @@ function useFireworkEffect (canvasRef) {
         const particles = [];
 
         // 开始动画
-        animate(ctx, canvas, fireworks, particles);
+        generateFirework(ctx, canvas, fireworks, particles);
 
         // 在组件卸载时移除窗口大小变化的监听器
         return () => {
