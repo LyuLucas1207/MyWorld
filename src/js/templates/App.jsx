@@ -7,6 +7,21 @@ import Switch from '../components/Switch';
 import { useTheme } from '../utility/myUse';
 import Firework from '../components/Firework';
 
+import {
+    AnimationEffectLight,
+    AnimationSpin,
+    AnimationNineSquares,
+    AnimationWaves,
+    AnimationCube,
+    AnimationHeart,
+    AnimationFiveSquares,
+    AnimationRaining,
+    AnimationCubeShadow,
+    AnimationBook,
+    AnimationEarth,
+    AnimationSaturnSpin,
+    AnimationRibbonSpin,
+} from '../components/AnimationComponents';
 function App() {
     const validPaths = ['/', '/not-found', '/index'];
     useValidRoute(validPaths);
@@ -14,6 +29,9 @@ function App() {
 
     return (
         <>
+           
+
+
             <div className="app_outer-container">
                 <Switch toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
                 <div className="app_inner-container">
@@ -28,6 +46,7 @@ function App() {
                             scene="https://prod.spline.design/o-ljJpLLOhYyoPOF/scene.splinecode"
                         />
                     </main>
+                    
 
                     <div className="app_fix-cover">
                         <span className="app_color-overlay">
@@ -37,7 +56,39 @@ function App() {
                         </span>
                     </div>
                 </div>
+
+
+
+                
+
                 <Firework width="90vw" height="90vh" />
+
+                <AnimationSpin />
+
+                <AnimationEffectLight />
+
+                <AnimationNineSquares />
+
+                <AnimationWaves />
+
+                <AnimationCube />
+
+                <AnimationHeart />
+
+                <AnimationFiveSquares />
+
+                <AnimationRaining />
+
+                <AnimationCubeShadow />
+
+                <AnimationBook />
+
+                <AnimationEarth />
+
+                <AnimationSaturnSpin />
+
+                <AnimationRibbonSpin />
+
             </div>
         </>
     );
