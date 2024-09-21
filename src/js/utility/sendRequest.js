@@ -3,10 +3,18 @@ import { classifyCode } from './classifyInformation';
 
 
 // const url = 'https://www.lucaslyu.com:9999'; // 正确使用 HTTPS 和自定义端口
-const url = 'https://192.168.1.75:9999'; // 正确使用 HTTP 和自定义端口
+// const url = 'https://192.168.1.75:9999'; // 正确使用 HTTP 和自定义端口
+
+function defineUrl() {
+    if (process.env.NODE_ENV === 'development') {
+        return 'https://192.168.1.75:9999';
+    }
+    return 'https://www.lucaslyu.com:9999';
+}
 
 
 function checkIdentity() {
+    const url = defineUrl();
     const token = localStorage.getItem('token');
     if (!token) {
         return classifyCode(401, 1, { msg: '未登录，请先登录！' });
@@ -37,6 +45,7 @@ function checkIdentity() {
 
 // 定义一个通用的函数，用于发送 POST 请求获取项目数据
 async function getDatas(action) {
+    const url = defineUrl();
     const token = localStorage.getItem('token');
     if (!token) {
         return { status : 401, code: 1, data: null, msg: '未登录，请先登录！' };
@@ -61,6 +70,7 @@ async function getDatas(action) {
 };
 
 function sendLoginRequest(email, password) {
+    const url = defineUrl();
     return axios.post(url, { // 发送 POST 请求
         action: 'login', // 定义 action 为 login
         email,
@@ -79,7 +89,8 @@ function sendLoginRequest(email, password) {
         });
 }
 
-function sendSignupRequest(firstName, lastName, studentId, email, password, inviteCode) {
+function sendSignupRequest(firstName, lastName, studentId, email, password, inviteCode, emailcode) {
+    const url = defineUrl();
     return axios.post(url, { // 发送 POST 请求
         action: 'signup', // 定义 action 为 signup
         firstName,
@@ -87,7 +98,8 @@ function sendSignupRequest(firstName, lastName, studentId, email, password, invi
         studentId,
         email,
         password,
-        inviteCode
+        inviteCode,
+        emailcode
     })
         .then((response) => {
             if (response.status === 201) {
@@ -102,8 +114,27 @@ function sendSignupRequest(firstName, lastName, studentId, email, password, invi
         });
 }
 
+function sendEmailVertifyRequest(email) {
+    const url = defineUrl();
+    return axios.post(url, { // 发送 POST 请求
+        action: 'emailVertify', // 定义 action 为 emailVertify
+        email
+    })
+        .then((response) => {
+            if (response.status === 200) {
+                classifyCode(response.status, response.data.code, response.data);
+            }
+        })
+        .catch((error) => {
+            if (error.response) {
+                classifyCode(error.response.status, error.response.data.code, error.response.data);
+            }
+            classifyCode(500, 1, { msg: error.message });
+        });
+}
 
-export { checkIdentity, getDatas, sendLoginRequest, sendSignupRequest };
+
+export { checkIdentity, getDatas, sendLoginRequest, sendSignupRequest, sendEmailVertifyRequest };
 
 
 

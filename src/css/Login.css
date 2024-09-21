@@ -10,7 +10,6 @@ body {
     align-items: center;
     height: 100vh;
     background-color: var(--login-background-color);
-    margin-top: 20px;
 }
 
 .login-form_card {

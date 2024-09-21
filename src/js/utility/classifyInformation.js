@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { setToken } from './tokenTool';
 
 function classifyCode(status = 999, code = 999, data = null) {
     switch (status) {
@@ -26,7 +27,7 @@ function status_200(code, data) {
     switch (code) {
         case 0:
             alert("登录成功！" + data.msg);
-            localStorage.setItem('token', data.data.token);
+            setToken(data.data.token);
             window.location.href = '/admin_home.html';
             break;
         case 1:
@@ -44,6 +45,9 @@ function status_200(code, data) {
         case 5:
             console.log("身份验证成功！" + data.msg);
             break;
+        case 6:
+            alert("验证码发送成功！请查收！" + data.msg);
+            break;
         default:
             alert("未知错误，请重试！" + data.msg);
             break;
@@ -55,7 +59,7 @@ function status_201(code, data) {
     switch (code) {
         case 0:
             alert("注册成功！" + data.msg);
-            localStorage.setItem('token', data.data.token);
+            setToken(data.data.token);
             window.location.href = '/admin_home.html';
             break;
         default:
@@ -64,7 +68,6 @@ function status_201(code, data) {
     }
     return { status: 201, code: code, data: data.data, msg: data.msg };
 }
-
 
 function status_500(code, data) {
     switch (code) {
@@ -111,11 +114,17 @@ function status_403(code, data) {
             alert("需要重新登录！" + data.msg);
             break;
         case 2:
-            alert("无权访问，请联系管理员！" + (data && data.msg ? data.msg : ''));
+            alert("验证码错误" + (data && data.msg ? data.msg : ''));
             break;
         case 3:
             alert("错误的邀请码，请检查输入！" + data.msg);
             break;
+        case 4:
+            alert("无验证码，请先获取验证码！" + data.msg);
+            break;
+        case 5:
+            alert("验证码已过期" + data.msg);
+            break
         default:
             alert("未知错误，请重试！" + data.msg);
             break;
@@ -137,7 +146,6 @@ function status_409(code, data) {
     }
     return { status: 409, code: code, data: data.data, msg: data.msg };
 }
-
 
 function status_default() {
     alert("未知错误，请重试！");

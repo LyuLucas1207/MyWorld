@@ -38,4 +38,10 @@ function validateStudentId(studentId) {
     return studentIdRegex.test(studentId);
 }
 
-export { validateUrl, validateEmail, validatePassword, validateInviteCode, validateStudentId };
+function validateEmailCode(emailcode) {
+    // 验证码为 6 位数字
+    const emailcodeRegex = /^\d{6}$/;
+    return emailcodeRegex.test(emailcode);
+}
+
+export { validateUrl, validateEmail, validatePassword, validateInviteCode, validateStudentId, validateEmailCode };
