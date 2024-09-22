@@ -297,6 +297,8 @@ function Sidebar({ sidebarOpen, toggleCategoryMenu, categoryOpen, toggleManagerA
                         <li><button onClick={() => fetchData('/setting')}>Setting</button></li>
                     </ul>
                 </li>
+
+                
                 <li>
                     <div className="admin-home_profile-details">
                         <div className="admin-home_profile-content">
@@ -400,13 +402,7 @@ const AdminHome = () => {
                 </button>
                 <div className="admin-home_infor">
                     <h1>项目列表</h1>
-                    {loading ? (
-                        <TentLoader />
-                    ) : projects ? (
-                        <ProjectList projects={projects} fetchData={fetchData} />
-                    ) : (
-                        <p>没有项目数据。</p>
-                    )}
+                    {loading ? (<TentLoader />) : projects ? (<ProjectList projects={projects} fetchData={fetchData} />) : (<p>没有项目数据。</p>)}
                 </div>
             </section>
         </>

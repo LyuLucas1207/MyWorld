@@ -89,6 +89,9 @@ function status_400(code, data) {
         case 1:
             alert("请求错误，请检查参数！" + data.msg);
             break;
+        case 2:
+            alert("请求错误，请检查参数！" + data.msg);
+            break;
         default:
             alert("未知错误，请重试！" + data.msg);
             break;
