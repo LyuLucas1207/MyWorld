@@ -140,6 +140,34 @@ body {
     }
 }
 
+.signup-form_email-btn {
+    width: 40%;
+    padding: 10px;
+    background-color: var(--login-link-bg-color);
+    color: var(--login-link-text-color);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signup-form_email-btn:hover {
+    background-color: var(--login-link-hover-bg-color);
+}
+
+.signup-form_email-btn:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .signup-form_email-btn {
+        padding: 8px;
+        border-radius: 8px;
+        font-size: 0.8rem;
+    }
+}
+
 .signup-form_input-group input,
 .signup-form_name-group input {
     width: 95%;

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import '../css/index.css';
 // import reportWebVitals from './templates/reportWebVitals';
 import { RouterProvider } from 'react-router-dom';
+// import BrowserRouter from 'react-router-dom';
 import BrowserRouter from '../routers/admin_home_router';
 
 const root = ReactDOM.createRoot(document.getElementById('admin_home-root'));
